@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { products } from "./../products";
 import { CartService } from '../cart.service';
+import { WishListService } from "../wishlist.service";
 
 @Component({
     selector: 'app-product-details',
@@ -14,7 +15,8 @@ export class ProductDetailsComponent implements OnInit{
     product;
     constructor(
         private route: ActivatedRoute,
-        private cartService: CartService
+        private cartService: CartService,
+        private wishListService: WishListService
     ){ }
 
     ngOnInit() { 
@@ -26,5 +28,11 @@ export class ProductDetailsComponent implements OnInit{
          window.alert("your product has been added!")
          this.cartService.addToCart(product)
      }
+     addToWishList(product){
+        window.alert('your product added to wishlist!');
+        this.wishListService.addToWishList(product);
+    }
+
+     
     
 }

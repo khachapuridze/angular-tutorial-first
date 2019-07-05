@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CartComponent } from './cart/cart.component';
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
-    CartComponent
+    CartComponent,
+    WishlistComponent,
+    ShippingComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,11 @@ import { CartComponent } from './cart/cart.component';
     },
     {
       path: 'cart', component: CartComponent
-    }
+    },
+    {
+      path: 'wishlist', component: WishlistComponent
+    },
+    { path: 'shipping', component: ShippingComponent },
   ])
   ],
   providers: [],
