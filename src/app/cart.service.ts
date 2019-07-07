@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CartService {
+    
     constructor(private http: HttpClient) {
 
     }
@@ -15,6 +16,11 @@ export class CartService {
     }
     getItems() {
         return this.items;
+    }
+
+    Remove(productId){
+        // delete this.items[productId];
+        this.items.splice(productId,1);
     }
 
     clearCart() {

@@ -17,7 +17,7 @@ export class CartComponent implements OnInit{
 
     Remove(productId) {
 
-       delete this.items.productId;
+       this.cartServices.Remove(productId);
 
     }
 
