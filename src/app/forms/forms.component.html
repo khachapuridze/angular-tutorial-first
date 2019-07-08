@@ -1,45 +1,65 @@
 
-<form [formGroup]="register" (ngSubmit)="onSubmit(checkedForm.value)">
+<form [formGroup]="register" (ngSubmit)="onSubmit(register.value)">
 
-    <div formGroupName="address">
-
-        <label for=""> Email:
-            <input type="email" formControlName="email" required>
+        <label for="email"> Email:
+            <input id="email" type="email" formControlName="email" >
         </label>
-        <label for=""> Password:
+        <label for="password"> Password:
             <input type="password" formControlName="password">
         </label>
-        <label for=""> Confirm Password:
+        <label for="confPassword"> Confirm Password:
             <input type="password" formControlName="confPassword">
         </label>
-        <label for=""> Nickname:
+        <label for="nickname"> Nickname:
             <input type="text" formControlName="nickname">
         </label>
-        <label for=""> Phone Number:
+        <label for="phone"> Phone Number:
             <input type="text" formControlName="phone">
         </label>
-        <label for=""> Website:
+        <label for="web"> Website:
             <input type="text" formControlName="web">
         </label>
-    </div>
-    <button class="button" type="button">Submit</button>
+        <input type="checkbox" name="check"  > I have read the <a href="">agreement</a><br>
+
+    <button class="button" type="submit">Submit</button>
 </form>
 
-
 <div>
-    <h3>Errors</h3>
-
-    <div *ngIf="email.invalid && (name.dirty || name.touched)">
-        <div *ngIf="name.errors.required">
-            Name is required!
-        </div>
-
-        <div *ngIf="name.errors.minlength">
-            Minumum length is 4!
-        </div>
-
-        <div *ngIf="name.errors.forbidden">
-            Name can't be {{name.value}}!
-        </div>
+        <h3>register</h3>
+        <p>Email: {{register.controls.email.value}}</p>
+        <p>Nickname: {{register.controls.nickname.value | json}}</p>
+        <p>Phone: {{register.controls.phone.value | json}}</p>
+        <p>Form Status: {{register.status}}</p>
+        <p>Form errors: {{register.controls.email.errors | json}}</p>
     </div>
-</div>
+    
+
+    <div>
+            <h3>Errors</h3>
+        
+            <div *ngIf="register.controls['email'].invalid  ">
+                <div *ngIf="register.controls['email'].errors.required">
+                    Email is required!
+                </div>
+                <div *ngIf="register.controls['email'].errors.email">
+                        Not valid Email!
+                </div>
+            </div>
+
+                 
+            <div *ngIf="register.controls['password'].invalid  ">
+                    <div *ngIf="register.controls['password'].errors.required">
+                        password is required!
+                    </div>
+                    <div *ngIf="!register.controls['password'].errors.MustMatch">
+                            Password Don't Match!
+                    </div>
+                    <div *ngIf="register.controls['password'].errors.minlength">
+                            Minimum length is 7!
+                    </div>
+
+                    <div *ngIf="!register.controls['password'].errors.pattern">
+                            Not valid!
+                    </div>
+            </div>
+        </div>

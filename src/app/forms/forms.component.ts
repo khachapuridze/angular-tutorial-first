@@ -17,21 +17,42 @@ export class formsComponent implements OnInit{
 
 
         this.register = this.formBuilder.group({
-            email: ['',[Validators.required]],
-            password: ['',[Validators.required]],
-            confPassword: ['',[Validators.required]],
-            validator: this.MustMatch('password','confPassword')
 
+            email: ['',[Validators.required,Validators.email]],
+            password: ['',[Validators.minLength(7),Validators.required,Validators.pattern(/^[0-9a-zA-Z]+$/)]],
+            confPassword: ['',[Validators.minLength(7),Validators.required]],
+            nickname: ['',[Validators.required]],
+            phone: ['',[Validators.required]],
+            web: ['',[Validators.required]],
+            
+
+        },
+        {
+            validator: this.MustMatch
         });
     }
 
 
-    MustMatch(pass:string|number, confPassword:string|number){
-        return pass === confPassword;
+    // passwordCheck(passwrd){
+    //     var letterNumber = /^[0-9a-zA-Z]+$/;
+    //     return passwrd.value.match(letterNumber);
+    // }
+   
+    static isPassOk(passwrd){
+        var letterNumber = /^[0-9a-zA-Z]+$/;
+        return passwrd.value.match(letterNumber)? true : null;
+
     }
+
+    MustMatch(password) {
+        if (password.get('password').value !== password.get('confPassword').value) {
+            return {invalid: true};
+        }
+    }
+
     onSubmit(value) {
         
-        this.register.push(value);
+        this.register(value);
     }
 
     resetForm() {
@@ -44,8 +65,8 @@ export class formsComponent implements OnInit{
         }
     }
 
-    get name() {
-        return this.register.get('name') as FormControl;
+    get email() {
+        return this.register.get('email') as FormControl;
     }
 
     ngOnInit() {  }
