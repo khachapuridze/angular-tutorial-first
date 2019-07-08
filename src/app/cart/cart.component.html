@@ -46,6 +46,16 @@
 <div>
     <h3>Errors</h3>
 
+    <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="!address.errors.zipStatus">
+            Zip is too long.
+        </div>
+        <div *ngIf="!address.errors.cityStatus">
+                Can't start from 'a'.
+        </div>
+        
+    </div>
+
     <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <div *ngIf="name.errors.required">
             Name is required!
