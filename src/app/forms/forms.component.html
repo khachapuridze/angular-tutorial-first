@@ -1,0 +1,45 @@
+
+<form [formGroup]="register" (ngSubmit)="onSubmit(checkedForm.value)">
+
+    <div formGroupName="address">
+
+        <label for=""> Email:
+            <input type="email" formControlName="email" required>
+        </label>
+        <label for=""> Password:
+            <input type="password" formControlName="password">
+        </label>
+        <label for=""> Confirm Password:
+            <input type="password" formControlName="confPassword">
+        </label>
+        <label for=""> Nickname:
+            <input type="text" formControlName="nickname">
+        </label>
+        <label for=""> Phone Number:
+            <input type="text" formControlName="phone">
+        </label>
+        <label for=""> Website:
+            <input type="text" formControlName="web">
+        </label>
+    </div>
+    <button class="button" type="button">Submit</button>
+</form>
+
+
+<div>
+    <h3>Errors</h3>
+
+    <div *ngIf="email.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.errors.required">
+            Name is required!
+        </div>
+
+        <div *ngIf="name.errors.minlength">
+            Minumum length is 4!
+        </div>
+
+        <div *ngIf="name.errors.forbidden">
+            Name can't be {{name.value}}!
+        </div>
+    </div>
+</div>

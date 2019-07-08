@@ -13,6 +13,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { formsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductDetailsComponent,
     CartComponent,
     WishlistComponent,
-    ShippingComponent
+    ShippingComponent,
+    formsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       path: 'wishlist', component: WishlistComponent
     },
     { path: 'shipping', component: ShippingComponent },
+    { path: 'forms', component: formsComponent }
   ])
   ],
   providers: [],
