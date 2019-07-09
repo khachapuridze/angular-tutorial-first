@@ -1,69 +1,43 @@
 import { Injectable } from '@angular/core';
-import { data } from "./rates";
-import {  Observable, Subscriber } from 'rxjs';
+import { data } from "./currencies";
+import {  Observable, Subscriber, from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CurrencyService {
-  result;
+  currencies;
   Observer;
-  constructor() {
-    this.result = this.transforObjectToArray(data.rates);
-    this.Observer = new Observable(this.subscribe(Subscriber));
+  constructor(private httpClient: HttpClient) {
+    this.currencies = data;
+    this.Observer = new Observable(this.subscribe());
 
-    this.Observer = {
-      result: this.result,
-      filter: this.filter,
-      map: this.map,
-      subscribe: this.subscribe,
-    };
    }
 
-   transforObjectToArray(object) {
-     const result = [];
-     const keys = Object.keys(object);
-     for(const key of keys){
-      const value = object[key];
-      const item = {
-        currency: key,
-        value
-      };
-      result.push(item);
+
+
+
+
+  subscribe() {
+    return (subscriber) => {
+      for(const currency of this.currencies){
+        let i = 0;
+        from(this.currencies).subscribe(currency => {
+        const url = `https://api.exchangeratesapi.io/latest?symbols=${currency}`;
+        this.httpClient
+          .get(url)
+          .subscribe(value =>{
+            subscriber.next(value);
+            i++;
+            if(i === this.currencies.length){
+              subscriber.complete();
+            }
+            
+          });
+        })
+      }
     }
-    return result;
-
-   }
-
-   filter(cb) {
-    this.result = this.result.filter(cb);
-    return this;
-   }
-
-   map(cb) {
-    this.result = this.result.map(cb);
-    return this;
-   }
-
-
-
-
-  subscribe(subscriber) {
-    return () => {
-  
-   
-    let id = 0;
-
-    for(const item of this.result){
-      setTimeout(() =>{
-        subscriber.next(item);
-      },id * 50);
-      id++;
-    };
-
-    setTimeout(() =>{
-      subscriber.complete();
-    },id * 50);
   }
-}
 }
