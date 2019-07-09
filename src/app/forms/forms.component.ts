@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-forms',
@@ -16,19 +16,19 @@ export class formsComponent implements OnInit{
     ){ 
 
 
-        this.register = this.formBuilder.group({
+        this.register = formBuilder.group({
 
             email: ['',[Validators.required,Validators.email]],
-            password: ['',[Validators.minLength(7),Validators.required,Validators.pattern(/^[0-9a-zA-Z]+$/)]],
-            confPassword: ['',[Validators.minLength(7),Validators.required]],
-            nickname: ['',[Validators.required]],
-            phone: ['',[Validators.required]],
-            web: ['',[Validators.required]],
-            
+            password: ['',[Validators.minLength(8),Validators.required,Validators.pattern(/[\w0-9]{8,}/)]],
+            confPassword: ['',[Validators.minLength(8),Validators.required,Validators.pattern(/[\w0-9]{8,}/)]],
+            nickname: ['',[Validators.required,Validators.pattern(/^[0-9a-zA-Z]+\-+$/)]],
+            phone: ['',[Validators.required,Validators.pattern(/\+380[0-9]{9}$/)]],
+            web: ['',[Validators.required,Validators.pattern(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)]],
+            check: ['',[Validators.required]]
 
         },
         {
-            validator: this.MustMatch
+            validators: this.MustMatch
         });
     }
 
@@ -38,11 +38,11 @@ export class formsComponent implements OnInit{
     //     return passwrd.value.match(letterNumber);
     // }
    
-    static isPassOk(passwrd){
-        var letterNumber = /^[0-9a-zA-Z]+$/;
-        return passwrd.value.match(letterNumber)? true : null;
+    // static isPassOk(passwrd){
+    //     var letterNumber = /^[0-9a-zA-Z]+$/;
+    //     return passwrd.value.match(letterNumber)? true : null;
 
-    }
+    // }
 
     MustMatch(password) {
         if (password.get('password').value !== password.get('confPassword').value) {
@@ -50,24 +50,15 @@ export class formsComponent implements OnInit{
         }
     }
 
+
+
+
     onSubmit(value) {
         
         this.register(value);
     }
 
-    resetForm() {
-        this.register.reset();
-    }
 
-    forbiddenName() {
-        return (formControl) => {
-            return formControl.value === 'Roman' ? { forbidden: { invalid: true } } : null;
-        }
-    }
-
-    get email() {
-        return this.register.get('email') as FormControl;
-    }
 
     ngOnInit() {  }
     
