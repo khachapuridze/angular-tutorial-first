@@ -37,4 +37,8 @@ export class CurrencyService {
       }
     }
   }
+
+  getcurrency(){
+    return this.currencies;
+  }
 }

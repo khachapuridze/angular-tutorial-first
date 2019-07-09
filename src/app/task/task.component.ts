@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task1Service } from "./../task-1.service";
+import { CurrencyService } from "./../currency.service";
 import { from } from 'rxjs';
 
 @Component({
@@ -8,8 +8,9 @@ import { from } from 'rxjs';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
-  rates: Array<object> = [];
-  constructor(private task1Service: Task1Service) {
+  currency1;
+  currency2;
+  constructor(private currencyService: CurrencyService) {
 
    }
 
