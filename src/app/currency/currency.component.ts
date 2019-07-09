@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyService } from "./../currency.service";
+import { filter } from 'rxjs/operators';
 
 
 @Component({
