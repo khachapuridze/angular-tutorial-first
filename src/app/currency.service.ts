@@ -17,9 +17,6 @@ export class CurrencyService {
    }
 
 
-
-
-
   subscribe() {
     return (subscriber) => {
       for(const currency of this.currencies){
