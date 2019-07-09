@@ -14,6 +14,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CurrencyComponent } from './currency/currency.component';
     CartComponent,
     WishlistComponent,
     ShippingComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { CurrencyComponent } from './currency/currency.component';
     },
     { path: 'shipping', component: ShippingComponent },
     { path: 'currency', component: CurrencyComponent },
+    { path: 'task', component: TaskComponent },
   ])
   ],
   providers: [],
