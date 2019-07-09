@@ -16,7 +16,7 @@ export class CurrencyService {
       result: this.result,
       filter: this.filter,
       map: this.map,
-      subscribe: this.subscribe
+      subscribe: this.subscribe,
     };
    }
 
@@ -51,12 +51,12 @@ export class CurrencyService {
     for(const item of this.result){
       setTimeout(() =>{
         next(item);
-      },id * 50)
+      },id * 50);
       id++;
     };
 
     setTimeout(() =>{
-      complete(this.result.length);
+      complete();
     },id * 50)
   }
 }
