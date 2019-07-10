@@ -51,9 +51,9 @@ export class exchangeCurrency implements OnInit {
     this.updateResult('input2');
   }
 
-  getRate(base, curr) {
-    this.exchangeCurrencyService.getRates(base, curr).subscribe(value => {
-      this.rate = value['rates'][curr];
+  getRate(base, cur) {
+    this.exchangeCurrencyService.getRates(base, cur).subscribe(value => {
+      this.rate = value['rates'][cur];
     });
   }
 
