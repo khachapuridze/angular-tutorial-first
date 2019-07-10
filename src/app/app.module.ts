@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
 import { exchangeCurrency } from './exchange/exchangeCurrency.component';
+import { ShippingService } from './shipping.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { exchangeCurrency } from './exchange/exchangeCurrency.component';
     { path: 'exchange', component: exchangeCurrency },
   ])
   ],
-  providers: [],
+  providers: [ShippingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
