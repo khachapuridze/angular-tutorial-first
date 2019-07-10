@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ExchangeCurrencyService {
   currencies;
-
   constructor(private httpClient: HttpClient) {
 
     this.currencies = data;
@@ -21,5 +20,12 @@ export class ExchangeCurrencyService {
   getRates(base, symbol) {
     const url = `https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`;
     return this.httpClient.get(url);
+ }
+
+ get ChangeValue() {
+   return this.currencies.ChangeValue;
+ }
+ setValue() {
+   return this.currencies.data;
  }
 }

@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CurrencyService {
+  selectedCurrency;
   currencies;
   Observer;
   constructor(private httpClient: HttpClient) {
@@ -40,5 +41,20 @@ export class CurrencyService {
 
   getcurrency(){
     return this.currencies;
+  }
+  base(value) {
+
+    return this.currencies.data[value];
+
+  }
+
+  symbol(value2) {
+    return this.currencies.data[value2];
+  }
+
+
+
+  setCurrency() {
+  return this.selectedCurrency;
   }
 }

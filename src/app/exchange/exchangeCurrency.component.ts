@@ -14,6 +14,7 @@ export class exchangeCurrency implements OnInit {
   currency1;
   currency2;
   exchangeForm;
+  value;
   constructor(private currencyService: CurrencyService,
     private httpclient: HttpClient,
     private forms: FormBuilder) {
@@ -35,11 +36,9 @@ export class exchangeCurrency implements OnInit {
     return this.exchangeForm.get('currency2') as FormControl;
   }
 
-  Change(value) {
-    for(const curr of this.currencies){
-      const url = this.httpclient.get(`https://api.exchangeratesapi.io/latest?symbols=${curr}`);
-      return url;
-    }
-
+   Change(value) {
+    const url = `https://api.exchangeratesapi.io/latest?symbols=${value}`;
+    this.httpclient.get(url);
+    return this.currencies.setCurrency(value)
   }
 }
