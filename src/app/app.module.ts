@@ -12,7 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
 import { exchangeCurrency } from './exchange/exchangeCurrency.component';
 
@@ -35,6 +35,7 @@ import { exchangeCurrency } from './exchange/exchangeCurrency.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([{
       path: '', component: ProductListComponent
     },

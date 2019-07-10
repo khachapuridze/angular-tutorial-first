@@ -6,10 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class ShippingService {
-  private type;
+  private type="None";
   constructor(private http: HttpClient) { }
 
-  getShippingCosts() {
+getShippingCosts() {
     return this.http.get('/assets/shipping.json');
 }
 setShipping(value) {
