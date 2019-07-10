@@ -1,31 +1,24 @@
-import { Injectable } from '@angular/core';
-import { data } from './currencies'
-import { HttpClient } from '@angular/common/http';
-
+import {Injectable} from '@angular/core';
+import {data} from './currencies';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ExchangeCurrencyService {
   currencies;
-  constructor(private httpClient: HttpClient) {
+  Observer;
 
+  constructor(private http: HttpClient) {
     this.currencies = data;
-
   }
 
-  getcurrency() {
+  getCurrencies() {
     return this.currencies;
   }
   getRates(base, symbol) {
     const url = `https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`;
-    return this.httpClient.get(url);
- }
-
- get ChangeValue() {
-   return this.currencies.ChangeValue;
- }
- setValue() {
-   return this.currencies.data;
+    return this.http.get(url);
  }
 }

@@ -1,16 +1,16 @@
  <h2>Exchange</h2>
-<form [formGroup]="exchangeForm" (onSumbit)="change($event.target.value)">
-    <div>
-        <select>
-            <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
-        </select>
-        <input formControlName="currency1" class="form-control" type="number" (change)="Change($event.target.value)">
-    </div>
-    
-    <div>
-        <select>
-            <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
-        </select>
-        <input formControlName="currency2" class="form-control" type="number" (change)="Change($event.target.value)" >
-    </div>
-</form>
+<form [formGroup]="form" class="main">
+
+    <select formControlName="currency1" (change)="onChangeCurrency(form.value.currency1)">
+     
+      <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option>
+    </select>
+    <input type="text" formControlName="input1" (keyup)="onChange1($event.target.value)">
+    <select formControlName="currency2" (change)="onChangeBase(form.value.currency2)">
+     
+      <option *ngFor="let currency of currencies" [ngValue]="currency">{{currency}}</option>
+    </select>
+    <input type="text" formControlName="input2" (keyup)="onChange2($event.target.value)">
+  
+  </form>
+  
