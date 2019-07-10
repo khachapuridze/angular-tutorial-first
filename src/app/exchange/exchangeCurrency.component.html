@@ -1,0 +1,16 @@
+ <h2>Exchange</h2>
+<form [formGroup]="exchangeForm">
+    <div>
+        <select>
+            <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
+        </select>
+        <input formControlName="currency1" class="form-control" type="number" (change)="Change($event.target.value)">
+    </div>
+    
+    <div>
+        <select>
+            <option [value]="currency" *ngFor="let currency of currencies">{{currency}}</option>
+        </select>
+        <input formControlName="currency2" class="form-control" type="number" (change)="Change($event.target.value)">
+    </div>
+</form>
