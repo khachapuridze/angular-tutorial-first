@@ -1,6 +1,10 @@
+<div class="container">
+<form [formGroup]="register" (ngSubmit)="onSubmit(register)">
 
-<form [formGroup]="register" (ngSubmit)="onSubmit(register.value)">
 
+        <label for="name"> Name:
+                <input id="name" type="text" formControlName="name" >
+        </label>
         <label for="email"> Email:
             <input id="email" type="email" formControlName="email" >
         </label>
@@ -10,29 +14,15 @@
         <label for="confPassword"> Confirm Password:
             <input type="text" formControlName="confPassword">
         </label>
-        <label for="nickname"> Nickname:
-            <input type="text" formControlName="nickname">
-        </label>
-        <label for="phone"> Phone Number:
-            <input type="text" formControlName="phone">
-        </label>
-        <label for="web"> Website:
-            <input type="text" formControlName="web">
-        </label>
-        <input  type="checkbox" formControlName="check"  required> I have read the <a href="">agreement</a><br>
-
-    <button class="btn btn-primary" type="submit" disabled >Register</button>
+    
+    <button class="btn btn-primary" type="submit" routerLink="/users" (click)="onSubmit(register.value)" >Register</button>
 
 </form>
+</div>
 
-<div>
-        <h3>register</h3>
-        <p>Email: {{register.controls.email.value}}</p>
-        <p>Nickname: {{register.controls.nickname.value | json}}</p>
-        <p>Phone: {{register.controls.phone.value | json}}</p>
+
         <p>Form Status: {{register.status}}</p>
-        <p>Form errors: {{register.controls.email.errors | json}}</p>
-    </div>
+
     
 
     <div>
@@ -62,39 +52,6 @@
                     <div *ngIf="register.controls['password'].errors.pattern">
                             Not valid Password!
                     </div>
-            </div>
-
-            <div *ngIf="register.controls['nickname'].invalid">
-                <div *ngIf="register.controls['nickname'].errors.required">
-                    nickname is required!
-                </div>
-                <div *ngIf="register.controls['nickname'].errors.pattern">
-                    Nickname should contain only english characters numbers and character -
-                </div>
-            </div>
-
-            <div *ngIf="register.controls['phone'].invalid">
-                <div *ngIf="register.controls['phone'].errors.required">
-                    Phone is required!
-                </div>
-                <div *ngIf="register.controls['phone'].errors.pattern">
-                    Phone Number should always start from +380 then it should contain 9 numbers
-                </div>
-            </div>
-
-            <div *ngIf="register.controls['web'].invalid">
-                <div *ngIf="register.controls['web'].errors.required">
-                    Website is required!
-                </div>
-                <div *ngIf="register.controls['web'].errors.pattern">
-                    Website should be like a website url
-                </div>
-            </div>
-
-            <div *ngIf="register.controls['check'].invalid" >
-                <span *ngIf="register.controls['check'].errors.required" >
-                    Agreements is required.
-                </span>
             </div>
 
 

@@ -1,8 +1,4 @@
-<h2>Your wish list</h2>
-<div class="cart-item" *ngFor="let item of wishlist" >
-    <span>{{item.name}}</span>
-    <span>{{item.price | currency}}</span>
-    <button (click)="addToCart(item)">Add to cart </button>
+<h1>Users</h1>
+<div *ngFor="let user of users; let i = index">
+    <span>{{i}} - {{user.name}} - {{user.email}}</span>
 </div>
-
-<button  (click)="clearWishlist()">Clear wishList</button>

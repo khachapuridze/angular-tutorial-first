@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from '@angular/forms';
-
+import {UsersService} from "./../user.service";
 @Component({
     selector: 'app-forms',
     templateUrl: './forms.component.html',
@@ -10,21 +10,19 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class formsComponent implements OnInit{
     register;
 
+
     constructor(
 
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private userService: UsersService
     ){ 
 
 
         this.register = formBuilder.group({
-
+            name: ['',[Validators.required]],
             email: ['',[Validators.required,Validators.email]],
             password: ['',[Validators.minLength(8),Validators.required,Validators.pattern(/[\w0-9]{8,}/)]],
             confPassword: ['',[Validators.minLength(8),Validators.required,Validators.pattern(/[\w0-9]{8,}/)]],
-            nickname: ['',[Validators.required,Validators.pattern(/^[0-9a-zA-Z]+\-+$/)]],
-            phone: ['',[Validators.required,Validators.pattern(/\+380[0-9]{9}$/)]],
-            web: ['',[Validators.required,Validators.pattern(/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)]],
-            check: ['',[Validators.required]]
 
         },
         {
@@ -55,7 +53,8 @@ export class formsComponent implements OnInit{
 
     onSubmit(value) {
         
-        this.register(value);
+        this.userService.addToUsers(value);
+
     }
 
 

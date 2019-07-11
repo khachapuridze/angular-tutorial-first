@@ -11,21 +11,18 @@ export class UsersService {
 
     constructor() { }
 
-    wishlist = [];
+    usersList = [];
 
     addToUsers(user) {
-
-        this.wishlist.push(user);
+        this.usersList.push(user);
     }
 
     getUsers() {
 
-        return this.wishlist;
+        return this.usersList;
+    }
+    geUserEmail(value) {
+        return this.usersList.find(user => user.email === value);
     }
 
-    Users() {
-
-        this.wishlist = [];
-        return this.wishlist;
-    }
 }
