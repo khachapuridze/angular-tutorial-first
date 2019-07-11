@@ -24,6 +24,9 @@ import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AdminGuard } from './admin.guard';
 
+import { formsComponent } from './forms/forms.component';
+import { UsersComponent } from './users/users.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { AdminGuard } from './admin.guard';
     ErrorComponent,
     BreadcrumbsComponent,
     AdminComponent,
-    GuardComponent
+    GuardComponent,
+    formsComponent,
+    UsersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +80,10 @@ import { AdminGuard } from './admin.guard';
     { path: 'admin',data:{name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard] },
     { path: '**', redirectTo: 'error' },
 
+    { path: 'shipping', component: ShippingComponent },
+    { path: 'forms', component: formsComponent },
+    { path: 'users', component: UsersComponent },
+    { path: 'login', component: LoginComponent }
   ])
   ],
   
