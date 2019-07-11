@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class UsersService {
+
     static GetUsers() {
       
     }
@@ -24,5 +25,7 @@ export class UsersService {
     geUserEmail(value) {
         return this.usersList.find(user => user.email === value);
     }
+
+
 
 }

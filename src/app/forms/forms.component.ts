@@ -49,10 +49,7 @@ export class formsComponent implements OnInit{
     }
 
 
-
-
     onSubmit(value) {
-        
         this.userService.addToUsers(value);
 
     }

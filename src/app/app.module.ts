@@ -75,15 +75,13 @@ import { LoginComponent } from './login/login.component';
     { path: 'dashboard', data:{name: 'Dashboard'},component: DashboardComponent },
     { path: 'dashboard/news', data:{name: 'News'},component: NewsComponent },
     { path: 'dashboard/news/:articleId', data:{name: 'Article'},component: ArticleComponent },
+    { path: 'forms',data:{name: 'Forms'}, component: formsComponent },
+    { path: 'users', data:{name: 'Users'}, component: UsersComponent },
+    { path: 'login', data:{name: 'Login'}, component: LoginComponent },
     { path: 'error',data:{name: 'Error'}, component: ErrorComponent },
     { path: 'guard',data:{name: 'Guard'}, component: GuardComponent },
     { path: 'admin',data:{name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard] },
-    { path: '**', redirectTo: 'error' },
-
-    { path: 'shipping', component: ShippingComponent },
-    { path: 'forms', component: formsComponent },
-    { path: 'users', component: UsersComponent },
-    { path: 'login', component: LoginComponent }
+    { path: '**', redirectTo: 'error' }
   ])
   ],
   
