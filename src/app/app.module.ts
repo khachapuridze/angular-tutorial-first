@@ -15,6 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
 import { exchangeCurrency } from './exchange/exchangeCurrency.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
+import { ArticleComponent } from './article/article.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import { exchangeCurrency } from './exchange/exchangeCurrency.component';
     WishlistComponent,
     ShippingComponent,
     CurrencyComponent,
-    exchangeCurrency
+    exchangeCurrency,
+    DashboardComponent,
+    NewsComponent,
+    ArticleComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +59,12 @@ import { exchangeCurrency } from './exchange/exchangeCurrency.component';
     { path: 'shipping', component: ShippingComponent },
     { path: 'currency', component: CurrencyComponent },
     { path: 'exchange', component: exchangeCurrency },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard/news', component: NewsComponent },
+    { path: 'dashboard/news/:articleId', component: ArticleComponent },
+    { path: 'error', component: ErrorComponent },
+    { path: '**', redirectTo: 'error' },
+
   ])
   ],
   
