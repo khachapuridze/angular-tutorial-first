@@ -27,6 +27,7 @@ import { AdminGuard } from './admin.guard';
 import { formsComponent } from './forms/forms.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { LoginComponent } from './login/login.component';
     GuardComponent,
     formsComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,7 @@ import { LoginComponent } from './login/login.component';
     { path: 'error',data:{name: 'Error'}, component: ErrorComponent },
     { path: 'guard',data:{name: 'Guard'}, component: GuardComponent },
     { path: 'admin',data:{name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard] },
+    { path: 'employees',data:{name: 'Employees'}, component: EmployeesComponent },
     { path: '**', redirectTo: 'error' }
   ])
   ],
