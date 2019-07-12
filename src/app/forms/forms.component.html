@@ -1,5 +1,5 @@
 <div class="container">
-<form [formGroup]="register" (ngSubmit)="onSubmit(register)">
+<form [formGroup]="register" (ngSubmit)="onSubmit(register.value)">
 
 
         <label for="name"> Name:
@@ -8,6 +8,7 @@
         <label for="email"> Email:
             <input id="email" type="email" formControlName="email" >
         </label>
+        
         <label for="password"> Password:
             <input type="password" formControlName="password">
         </label>
@@ -15,15 +16,10 @@
             <input type="password" formControlName="confPassword">
         </label>
     
-    <button class="btn btn-primary" type="submit" routerLink="/users" (click)="onSubmit(register.value)" >Register</button>
+    <button class="btn btn-primary" type="submit" >Register</button>
 
 </form>
 </div>
-
-
-        <p>Form Status: {{register.status}}</p>
-
-    
 
     <div>
             <h3>Errors</h3>

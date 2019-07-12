@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   private access = false;
+  private userID: number;
 
   constructor() { }
 
@@ -19,5 +20,13 @@ export class AuthService {
   }
   allow() {
     this.access =true;
+  }
+  allowUsers(id) {
+    this.access = true;
+    this.userID = id;
+    console.log(this.userID, id);
+  }
+  getAll() {
+    return 
   }
 }

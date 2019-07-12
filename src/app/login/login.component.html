@@ -1,6 +1,6 @@
 <p>login works!</p>
 <div>
-    <form [formGroup]="login" (ngSubmit)="onSubmit(login)">
+    <form [formGroup]="login" (ngSubmit)="onSubmit(login.value)">
             <label for="name"> Email:
                     <input id="email" type="email" formControlName="email" >
             </label>
@@ -8,6 +8,6 @@
                     <input id="password" type="password" formControlName="password" >
             </label>
 
-            <button class="btn btn-primary" type="submit" routerLink="/users" (click)="onSubmit(login.value)" >Login</button>
+            <button type="submit" class="btn btn-primary" >Login</button>
     </form>
 </div>

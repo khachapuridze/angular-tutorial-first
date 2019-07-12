@@ -18,12 +18,11 @@ export class UsersService {
         this.usersList.push(user);
     }
 
-    getUsers() {
-
+    getAll() {
         return this.usersList;
     }
-    geUserEmail(value) {
-        return this.usersList.find(user => user.email === value);
+    verify(email, pass) {
+        return this.usersList.findIndex(user => user.email === email && user.password === pass);
     }
 
 

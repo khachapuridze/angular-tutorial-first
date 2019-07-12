@@ -34,7 +34,7 @@
 <a [routerLink]="['/forms']" class="button fancy-button">
     Register
 </a>
-<a [routerLink]="['/users']" class="button fancy-button" >
+<a [routerLink]="['/users']" class="button fancy-button" *ngIf="access">
     Users
 </a>
 

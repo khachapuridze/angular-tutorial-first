@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from '@angular/forms';
 import {UsersService} from "./../user.service";
+import { Router } from '@angular/router';
+
 @Component({
     selector: 'app-forms',
     templateUrl: './forms.component.html',
@@ -14,6 +16,7 @@ export class formsComponent implements OnInit{
     constructor(
 
         private formBuilder: FormBuilder,
+        private router: Router,
         private userService: UsersService
     ){ 
 
@@ -31,17 +34,6 @@ export class formsComponent implements OnInit{
     }
 
 
-    // passwordCheck(passwrd){
-    //     var letterNumber = /^[0-9a-zA-Z]+$/;
-    //     return passwrd.value.match(letterNumber);
-    // }
-   
-    // static isPassOk(passwrd){
-    //     var letterNumber = /^[0-9a-zA-Z]+$/;
-    //     return passwrd.value.match(letterNumber)? true : null;
-
-    // }
-
     MustMatch(password) {
         if (password.get('password').value !== password.get('confPassword').value) {
             return {invalid: true};
@@ -51,6 +43,8 @@ export class formsComponent implements OnInit{
 
     onSubmit(value) {
         this.userService.addToUsers(value);
+        window.alert("You susccessfuly registered, Please Login! ");
+        this.router.navigate(['login']);
 
     }
 
