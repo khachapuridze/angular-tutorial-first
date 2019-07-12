@@ -1,0 +1,19 @@
+<h1>Register Employees!</h1>
+
+<form [formGroup]="employeeRegister" (ngSubmit)="onSubmit(employeeRegister.value)" class="container">
+    
+        <label for="name"> Name:
+                <input id="name" type="text" formControlName="name" >
+        </label>
+        <label for="salary"> Salary:
+            <input id="salary" type="number" formControlName="salary" >
+        </label>
+        
+        <label for="age"> Age:
+            <input type="number" formControlName="age">
+        </label>
+    
+    <button class="btn btn-primary" type="submit" >Register</button>
+
+
+</form>

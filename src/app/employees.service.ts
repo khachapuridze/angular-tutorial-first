@@ -16,7 +16,7 @@ interface IEmployee {
 export class EmployeesService {
 
   host = "http://dummy.restapiexample.com/api/v1";
-
+  newEmployees= [];
   constructor(private http: HttpClient) { }
 
   getEmployees() {
@@ -31,7 +31,14 @@ export class EmployeesService {
           age: employee.employee_age
         }
       })
-    }))
+    }));
   }
 
+  addToEmployes(employee: IEmployee) {
+    console.log(employee);
+
+     return this.http
+     .post<IEmployee>(`${this.host}/create`, employee)
+     .subscribe(employee => this.newEmployees.push(employee));
+  }
 }

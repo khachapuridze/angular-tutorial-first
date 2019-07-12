@@ -48,6 +48,11 @@
     Employees
 </a>
 
+<a [routerLink]="['/employees/register']" class="button fancy-button">
+   
+    Employees-Register
+</a>
+
 <a [routerLink]="['/login']" class="button fancy-button" *ngIf="access" (click)="logout()">
    
     Logout
