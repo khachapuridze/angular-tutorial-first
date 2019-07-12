@@ -44,13 +44,17 @@ export class EmployeesService {
   }
 
   
-  getEmployeeById() {
-    const dataBase =  this.http.get(`${this.host}/employees`).subscribe((res)=>{
-      res;
-  });
-  
-    
-    
- 
+  getEmployeeById(id) {
+    return this.http
+      .get(`${this.host}/employee/${id}`)
+      .pipe(map((employee: IEmployee) => {
+            return {
+              id: employee.id,
+              name: employee.employee_name,
+              salary: employee.employee_salary,
+              age: employee.employee_age
+            }
+      
+      }))
   }
 }

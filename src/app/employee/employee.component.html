@@ -1,8 +1,21 @@
-<h1>Employee</h1>
+<h1>Employees!</h1>
 
-<ul>
-    <li *ngFor="let employee of employees">
-        <p>{{employee.id}}</p>
-        <p>{{employee.name}}</p>
-    </li>
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.age}}</td>
+
+        </tr>
+    </tbody>
+</table>
