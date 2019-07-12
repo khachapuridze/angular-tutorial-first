@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-top-bar',
@@ -9,7 +10,8 @@ import { AuthService } from '../auth.service';
 
 export class TopBarComponent implements OnInit {
     constructor(
-        private authService: AuthService
+        private authService: AuthService,
+        private router: Router
     ){ }
  
 
@@ -19,5 +21,11 @@ export class TopBarComponent implements OnInit {
     get access() {
         return this.authService.isEnabled();
     }
+
+    logout() {
+
+        this.authService.disallow();
+        window.alert('User Logedout!');
+      }
     
 }

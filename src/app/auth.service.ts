@@ -26,7 +26,6 @@ export class AuthService {
     this.userID = id;
     console.log(this.userID, id);
   }
-  getAll() {
-    return 
-  }
+
+
 }
