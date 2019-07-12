@@ -3,14 +3,14 @@
 <form [formGroup]="employeeRegister" (ngSubmit)="onSubmit(employeeRegister.value)" class="container">
     
         <label for="name"> Name:
-                <input id="name" type="text" formControlName="name" >
+                <input id="name" type="text" formControlName="name" required>
         </label>
         <label for="salary"> Salary:
-            <input id="salary" type="number" formControlName="salary" >
+            <input id="salary" type="number" formControlName="salary" required>
         </label>
         
         <label for="age"> Age:
-            <input type="number" formControlName="age">
+            <input type="number" formControlName="age" required>
         </label>
     
     <button class="btn btn-primary" type="submit" >Register</button>

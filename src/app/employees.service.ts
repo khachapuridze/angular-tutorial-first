@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { data } from './currencies';
 
 interface IEmployee {
   id: string,
@@ -40,5 +41,16 @@ export class EmployeesService {
      return this.http
      .post<IEmployee>(`${this.host}/create`, employee)
      .subscribe(employee => this.newEmployees.push(employee));
+  }
+
+  
+  getEmployeeById() {
+    const dataBase =  this.http.get(`${this.host}/employees`).subscribe((res)=>{
+      res;
+  });
+  
+    
+    
+ 
   }
 }
