@@ -1,3 +1,9 @@
 .container {
     margin-top: 40px;
+    label {
+        input {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
