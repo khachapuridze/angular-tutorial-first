@@ -15,7 +15,28 @@
             <td>{{employee.name}}</td>
             <td>{{employee.salary}}</td>
             <td>{{employee.age}}</td>
+            <td>
+                    <button type="submit" *ngIf="!active" (click)="editEmployee(employee.id)">Edit</button>
+            </td>
 
+
+        </tr>
+        <tr *ngIf="active" [formGroup]="editEmployeeForm">
+                <td>
+                    ID
+                </td>
+                <td>
+                    <input type="text"  formControlName="name">
+                </td>
+                <td>
+                    <input type="text"  formControlName="salary">
+                </td>
+                <td>
+                    <input type="text"  formControlName="age">
+                </td>
+                <td>
+                    <button class="btn btn-primary" type="submit" routerLink="/employees/{{employee.id}}"  (click)="editEmployee(editEmployeeForm.value)">Submit</button>
+                </td>
         </tr>
     </tbody>
 </table>
