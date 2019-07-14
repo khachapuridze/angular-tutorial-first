@@ -17,13 +17,14 @@
             <td>{{employee.age}}</td>
             <td>
                     <button type="submit" *ngIf="!active" (click)="editEmployee(employee.id)">Edit</button>
+                    <button class="btn btn-primary" type="submit" routerLink="/employees"  (click)="deleteEmployee(employee.id)">Delete</button>
             </td>
 
 
         </tr>
         <tr *ngIf="active" [formGroup]="editEmployeeForm">
                 <td>
-                    ID
+                    ID - {{employee.id}}
                 </td>
                 <td>
                     <input type="text"  formControlName="name">

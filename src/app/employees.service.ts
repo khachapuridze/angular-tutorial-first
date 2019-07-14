@@ -61,4 +61,7 @@ export class EmployeesService {
   editEmployees(id, employee) {
     return this.http.put(`${this.host}/update/${id}`, employee);
   }
+  deleteEmployee (id,employee){
+    return this.http.delete(`${this.host}/delete/${id}`, employee);
+  }
 }

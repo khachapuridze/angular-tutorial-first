@@ -48,4 +48,11 @@ export class EmployeeComponent implements OnInit {
       this.active = false;
     });
   }
+  deleteEmployee(employee){
+    this.active = true;
+    this.employeesService.deleteEmployee(this.employee.id,employee).subscribe(deletededemployee => {
+      this.employee=deletededemployee;
+      this.active = false;
+    });
+  }
 }
