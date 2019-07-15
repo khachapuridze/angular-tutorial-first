@@ -23,6 +23,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AdminGuard } from './admin.guard';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { formsComponent } from './forms/forms.component';
 import { UsersComponent } from './users/users.component';
@@ -30,6 +31,8 @@ import { LoginComponent } from './login/login.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { MenuComponent } from './menu/menu.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { EmployeeComponent } from './employee/employee.component';
     LoginComponent,
     EmployeesComponent,
     EmployeeRegisterComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { EmployeeComponent } from './employee/employee.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([{
       path: '', data:{name: 'Home'}, component: ProductListComponent
     },
