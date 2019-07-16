@@ -1,6 +1,6 @@
 import { AuthService } from "./auth.service";
 
-describe('Auth Servixce tests', () =>{
+describe('Auth Service tests', () =>{
     let service: AuthService;
 
     beforeEach(()=> {

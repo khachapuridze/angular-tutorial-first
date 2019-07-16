@@ -17,6 +17,7 @@ export class ExchangeCurrencyService {
   getCurrencies() {
     return this.currencies;
   }
+
   getRates(base, symbol) {
     const url = `https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`;
     return this.http.get(url);
