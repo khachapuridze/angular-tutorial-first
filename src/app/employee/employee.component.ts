@@ -2,17 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../employees.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
+  animations: [
+    trigger('askDelete',[
+      state('open',style({
+        left: '15px'
+      })),
+
+      state('close',style({
+        left: '-105px'
+      })),
+      transition('open<=> close',[
+        animate('1s')
+      ])
+
+    ])
+  ]
 })
 export class EmployeeComponent implements OnInit {
   employees$;
   employee;
   editEmployeeForm;
   active = false;
+  isCheck = false;
 
 
 
@@ -57,4 +74,14 @@ export class EmployeeComponent implements OnInit {
       this.active = false;
     });
   }
+
+  askCheck() {
+    this.isCheck = true;
+  }
+  cancelAskCheck () {
+    this.isCheck = false;
+  }
+
+
+
 }

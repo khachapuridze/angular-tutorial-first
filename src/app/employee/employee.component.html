@@ -17,7 +17,7 @@
             <td>{{employee.age}}</td>
             <td>
                     <button type="submit" *ngIf="!active" (click)="editEmployee(employee.id)">Edit</button>
-                    <button class="btn btn-primary" type="submit" routerLink="/employees"  (click)="deleteEmployee(employee.id)">Delete</button>
+                    <button class="btn btn-primary" (click)="askCheck()">Delete Employee</button>
             </td>
 
 
@@ -42,4 +42,10 @@
         </tr>
     </tbody>
 </table>
+
+<div class="check" [@askDelete]="isCheck ? 'open' : 'close' " *ngIf="isCheck">
+<h3>Are you sure?</h3>
+<button class="btn btn-primary" type="submit" routerLink="/employees"  (click)="deleteEmployee(employee.id)">Yes</button>
+<button (click)="cancelAskCheck()">Cancel</button>
+</div>
 <app-loader #loader></app-loader>
