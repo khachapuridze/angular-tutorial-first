@@ -33,6 +33,7 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
 import { EmployeeComponent } from './employee/employee.component';
 import { MenuComponent } from './menu/menu.component';
 import { from } from 'rxjs';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { from } from 'rxjs';
     EmployeesComponent,
     EmployeeRegisterComponent,
     EmployeeComponent,
-    MenuComponent
+    MenuComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,7 @@
 
         </tr>
         <tr *ngIf="active" [formGroup]="editEmployeeForm">
+                <app-loader #loader></app-loader>
                 <td>
                     ID - {{employee.id}}
                 </td>
@@ -41,3 +42,4 @@
         </tr>
     </tbody>
 </table>
+<app-loader #loader></app-loader>
