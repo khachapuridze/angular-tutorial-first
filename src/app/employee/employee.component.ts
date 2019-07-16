@@ -17,7 +17,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       state('close',style({
         left: '-105px'
       })),
-      transition('open<=> close',[
+      transition('open <=> close',[
         animate('1s')
       ])
 
