@@ -6,6 +6,7 @@ import { EmployeesService } from '../employees.service';
   templateUrl: './employees.component.html',
   styleUrls: ['./employees.component.scss']
 })
+
 export class EmployeesComponent implements OnInit {
   employees$;
   constructor(private employeesService: EmployeesService ) { }
@@ -13,6 +14,5 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.employees$ = this.employeesService.getEmployees();
   }
-
 
 }

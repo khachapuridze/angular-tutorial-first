@@ -15,6 +15,7 @@ export class EmployeeComponent implements OnInit {
   active = false;
 
 
+
   constructor(private employeesService: EmployeesService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {
 
     this.editEmployeeForm = formBuilder.group({
